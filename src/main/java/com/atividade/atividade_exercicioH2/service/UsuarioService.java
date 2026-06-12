@@ -1,6 +1,6 @@
 package com.atividade.atividade_exercicioH2.service;
 
-import com.atividade.atividade_exercicioH2.model.UsuarioGamer;
+import com.atividade.atividade_exercicioH2.model.Usuario;
 import com.atividade.atividade_exercicioH2.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,23 +13,22 @@ import java.util.List;
 public class UsuarioService {
     private final UsuarioRepository repository;
 
-    public List<UsuarioGamer> listar(){
+    public List<Usuario> listar(){
         return repository.findAll();
     }
-    public UsuarioGamer buscarPorID(Long id){
-        return repository.findById(id).orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+    public Usuario buscarPorID(Long id){
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
     }
-    public  UsuarioGamer salvar(UsuarioGamer usuarioGamer){
-        return repository.save(usuarioGamer);
+    public Usuario salvar(Usuario usuario){
+        return repository.save(usuario);
     }
-    public UsuarioGamer atualizar(Long id, UsuarioGamer dados){
-        UsuarioGamer usuarioGamer = buscarPorID(id);
-        usuarioGamer.setNickname(dados.getNickname());
-        usuarioGamer.setEmail(dados.getEmail());
-        usuarioGamer.setJogoFavorito(dados.getJogoFavorito());
-        usuarioGamer.setNivelJogador(dados.getNivelJogador());
+    public Usuario atualizar(Long id, Usuario dados){
+        Usuario usuario = buscarPorID(id);
+        usuario.setNome(dados.getNome());
+        usuario.setEmail(dados.getEmail());
 
-        return repository.save(usuarioGamer);
+
+        return repository.save(usuario);
     }
 
     public void excluir(Long id){

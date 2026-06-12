@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.atividade</groupId>
-	<artifactId>atividade_exercicioH2</artifactId>
+	<artifactId>projetoLiandro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>

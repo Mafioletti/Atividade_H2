@@ -1,6 +1,6 @@
 package com.atividade.atividade_exercicioH2.controller;
 
-import com.atividade.atividade_exercicioH2.model.UsuarioGamer;
+import com.atividade.atividade_exercicioH2.model.Usuario;
 import com.atividade.atividade_exercicioH2.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,19 +16,19 @@ public class UsuarioController {
     private final UsuarioService service;
 
     @GetMapping
-    public List<UsuarioGamer> listar() {
+    public List<Usuario> listar() {
         return  service.listar();
     }
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioGamer> buscar(@PathVariable Long id) {
+    public ResponseEntity<Usuario> buscar(@PathVariable Long id) {
         return ResponseEntity.ok(service.buscarPorID(id));
     }
     @PostMapping
-    public ResponseEntity<UsuarioGamer> salvar(@RequestBody UsuarioGamer usuarioGamer){
-        return ResponseEntity.ok(service.salvar(usuarioGamer));
+    public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario){
+        return ResponseEntity.ok(service.salvar(usuario));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioGamer> atualizar(@PathVariable Long id, @RequestBody UsuarioGamer dados){
+    public ResponseEntity<Usuario> atualizar(@PathVariable Long id, @RequestBody Usuario dados){
         return ResponseEntity.ok(service.atualizar(id, dados));
     }
     @DeleteMapping("/{id}")
